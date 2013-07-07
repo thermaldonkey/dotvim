@@ -1,0 +1,9 @@
+This package includes my Vim configurations and installed plugins.
+
+Installation:
+
+    git clone git://github.com/Bradf0rd91/dotvim.git ~/.vim
+
+Create symlinks:
+
+    ln -s ~/.vim/vimrc ~/.vimrc
