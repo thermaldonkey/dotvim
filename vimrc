@@ -28,6 +28,24 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+" Map quicker write/ruby
+map <leader>r :! ruby % <CR>
+
+" Map write/run rspec tests
+" map <leader>ts :! rspec % --require ./spec/spec_helper.rb --format documentation --color <CR>
+" map <leader>t :! rspec % --format documentation --color <CR>
+
+" vim-rspec mappings
+nnoremap <leader>f :call RunCurrentSpecFile()<CR>
+nnoremap <leader>s :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "!rspec --format documentation {spec}"
+
+" Map ESC char to something easier to type
+imap ;; <Esc>
+vmap ;; <Esc>
+
 " For quick edit of this file
 nmap <leader>v :vsp $MYVIMRC<CR>
 
