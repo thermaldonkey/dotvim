@@ -49,6 +49,16 @@ vmap ;; <Esc>
 " For quick edit of this file
 nmap <leader>v :vsp $MYVIMRC<CR>
 
+" xmpfilter keymaps
+" map <F4> <Plug>(xmpfilter-mark)
+" map <F5> <Plug>(xmpfilter-run)
+  map <leader>m <Plug>(xmpfilter-mark)
+  map <leader>x <Plug>(xmpfilter-run)
+
+" Insert new comment line
+nmap <leader>o o# 
+nmap <leader>O O# 
+
 if has("autocmd")
   " Enable filetype detection
   filetype on
@@ -70,12 +80,23 @@ if has("autocmd")
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType erlang setlocal ts=4 sts=4 sw=4 expandtab
 
   " For smart Ruby completion
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+  " xmpfilter keymaps
+  autocmd FileType ruby nmap <buffer> <C-D-m> <Plug>(xmpfilter-mark)
+  autocmd FileType ruby xmap <buffer> <C-D-m> <Plug>(xmpfilter-mark)
+  autocmd FileType ruby imap <buffer> <C-D-m> <Plug>(xmpfilter-mark)
+
+  autocmd FileType ruby nmap <buffer> <C-D-r> <Plug>(xmpfilter-run)
+  autocmd FileType ruby xmap <buffer> <C-D-r> <Plug>(xmpfilter-run)
+  autocmd FileType ruby imap <buffer> <C-D-r> <Plug>(xmpfilter-run)
 endif
 
 "improve autocomplete menu color
